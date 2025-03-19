@@ -1,0 +1,10 @@
+{   
+    "ServerPort": 9000,
+    "Database": {
+        "host" : "localhost",
+        "port" : 3306,
+        "user" : "root",
+        "password" : "2017",
+        "database" : "weclouddata-student-management-system"
+    }
+}
