@@ -31,6 +31,12 @@ Dashboard: Data visualizations using Chart.js
 ---
 
 
+## Testing
+To run tests
+
+---
+
+
 ## Deployment
 Docker & Docker Compose for containerized deployment. (Not Deployed, Still in Progress)
 
