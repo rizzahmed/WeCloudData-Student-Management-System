@@ -60,7 +60,7 @@ The interactive API documentation can be accessed at:
 7. (Optional) Run Using Docker (Not Deployed, Still in Progress)
 
 
-8. You can updatee configuration from config.json file
+8. You can update configuration from "config.json" file
 
 
 ---
