@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="icon" href="{{ url_for('static', path='assets/favicon.ico') }}" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='table.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='responsive.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='tooltip.css') }}">
+    
+    {% block styling %}
+
+    {% endblock styling %}
+
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <div id="ErrorMessage"></div>
+    <div id="SuccessMessage"></div>
+
+    <div id="Model" class="model-deactive"></div>
+
+    <main>
+        <nav>
+            <div class="upper">
+                <img src="{{ url_for('static', path='assets/profile-img.png') }}" id="profile-img"
+                    title="Rizwan Ahmed | Software Engineer">
+            </div>
+            <div class="lower">
+                <div class="menus">
+                    <img src="{{ url_for('static', path='assets/student.png') }}" alt="Student" class="icons"
+                        title="Students" onclick="navigatePage('students')">
+                    <img src="{{ url_for('static', path='assets/course.png') }}" alt="Courses" class="icons"
+                        title="Courses" onclick="navigatePage('courses')">
+                    <img src="{{ url_for('static', path='assets/enrollment.png') }}" alt="Enrollments" class="icons"
+                        title="Enrollments" onclick="navigatePage('enrollments')">
+                </div>
+            </div>
+        </nav>
+
+
+        <script src="{{ url_for('static', path='Lib/logics.js') }}"></script>
+
+        {% block content %} {% endblock content %}
+        
+        <!-- <div>
+            <img src="./assets/profile-img.png">
+        </div>
+        <div>
+            <input type="text" placeholder="Search">
+            <button>Add Student</button>
+        </div> -->
+    </main>
+
+    
+</body>
+
+</html>

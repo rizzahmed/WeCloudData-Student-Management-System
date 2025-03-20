@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+
+
+{% block styling %}
+
+    <style>
+        form {
+            width: 400px;
+            margin: 20px auto;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        .row {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .row label {
+            width: 100px;
+            font-weight: bold;
+        }
+        .row input {
+            flex: 1;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 20px;
+        }
+        .submit-btn, .cancel-btn {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .submit-btn {
+            background-color: #1a57db;
+            color: white;
+            margin-right: 5px;
+        }
+        .submit-btn:hover {
+            background-color: #113e9e;
+        }
+        .cancel-btn {
+            background-color: #d1d1d1;
+            color: #000000;
+        }
+        .cancel-btn:hover {
+            background-color: #c7c7c7;
+        }
+
+        .formHeading {
+            text-align: center;
+            padding: 40px;
+        }
+
+    </style>
+
+{% endblock styling %}
+
+{% block content %}
+
+<content>
+    <div class="Heading">
+        <h2>Courses</h2>
+    </div>
+
+
+    <div class="Functions" >
+        <div class="SearchBox">
+            <input class="SearchField" placeholder="Search" oninput="debounceCourseSearch(event)">
+        </div>
+        <button id="AddStudent" onclick="OpenCourseForm()">Add New Course</button>
+    </div>
+
+    <div class="dataContainer">
+        <table class="dataTable">
+            <thead>
+                <tr>
+                    {% for heading in tableHeadings %}
+                    <th>{{ heading }}</th>
+                    {% endfor %}
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody id="courseTableBody">
+                {% for data in tableData %}
+                <tr>
+                    <td>{{ data.CourseName }}</td>
+                    <td>{{ data.CourseCode }}</td>
+                    <td>{{ data.Instructor }}</td>
+                    <td>{{ data.Credits }}</td>
+                    <td class="editBtn tooltip">
+                        ...
+                        <div class="tooltiptext">
+                            <span id="toolTipEditBtn" onclick="EditCourse(this)" data-ID="{{ data.ID }}">Edit</span>
+                            <span id="toolTipDeleteBtn"  onclick="DeleteStudent(this)" data-ID="{{ data.ID }}">Delete</span>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+</content>
+
+{% endblock content %}

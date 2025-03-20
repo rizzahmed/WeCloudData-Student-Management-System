@@ -1,0 +1,81 @@
+
+/* Tab */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav {
+        background-color: yellow;
+        width: 100%;
+        height: 100px;
+        padding: 10px 20px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .Heading{
+        margin-top: 0;
+    }
+
+    .lower {
+        padding: 0;
+    }
+    .menus {
+        flex-direction: row;
+        gap: 35px;
+    }
+
+    #profile-img {
+        margin: 0
+    }
+
+    .icons {
+        max-width: 30px;
+    }
+
+    
+    table.dataTable thead th {
+        font-size: 18px;
+    }
+
+    
+    table.dataTable tbody td {
+        font-size: 14px;
+    }
+
+    .dataContainer {
+        padding: 50px 15px;
+    }
+    
+}
+
+/* Mobile  */
+@media (max-width: 480px) {
+    nav {
+        background-color: green;
+        width: 100%;
+        padding: 10px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .menus {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    #profile-img {
+        width: 40px;
+    }
+
+    .icons {
+        max-width: 25px;
+        padding: 8px;
+    }
+
+    .dataContainer {
+        padding: 50px 10px;
+    }
+}

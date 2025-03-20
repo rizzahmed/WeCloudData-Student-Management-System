@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+
+
+
+{% block styling %}
+
+    <style>
+        form {
+            width: 400px;
+            margin: 20px auto;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        .row {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .row label {
+            width: 100px;
+            font-weight: bold;
+        }
+        .row input {
+            flex: 1;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 20px;
+        }
+        .submit-btn, .cancel-btn {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .submit-btn {
+            background-color: #1a57db;
+            color: white;
+            margin-right: 5px;
+        }
+        .submit-btn:hover {
+            background-color: #113e9e;
+        }
+        .cancel-btn {
+            background-color: #d1d1d1;
+            color: #000000;
+        }
+        .cancel-btn:hover {
+            background-color: #c7c7c7;
+        }
+
+        .formHeading {
+            text-align: center;
+            padding: 40px;
+        }
+
+    </style>
+
+{% endblock styling %}
+
+{% block content %}
+
+<content>
+    <div class="Heading">
+        <h2>Students</h2>
+    </div>
+
+    <div class="graphs">
+        <div class="graph">
+            <canvas id="barChart"></canvas>
+        </div>
+
+        <div id="pieChartGraph">
+            <canvas id="pieChart"></canvas>
+        </div>
+    </div>
+
+    <div class="Functions" >
+        <div class="SearchBox">
+            <input class="SearchField" placeholder="Search" oninput="debounceStudentSearch(event)">
+        </div>
+        <button id="AddStudent" onclick="OpenStudentForm()">Add New Student</button>
+    </div>
+
+    <div class="dataContainer">
+        <table class="dataTable">
+            <thead>
+                <tr>
+                    {% for heading in tableHeadings %}
+                    <th>{{ heading }}</th>
+                    {% endfor %}
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody id="studentTableBody">
+                {% for data in tableData %}
+                <tr>
+                    <td>{{ data.StudentID }}</td>
+                    <td>{{ data.Name }}</td>
+                    <td>{{ data.Email }}</td>
+                    <td>{{ data.DOB }}</td>
+                    <td class="editBtn tooltip">
+                        ...
+                        <div class="tooltiptext">
+                            <span id="toolTipEditBtn" onclick="EditStudent(this)" data-ID="{{ data.ID }}">Edit</span>
+                            <span id="toolTipDeleteBtn"  onclick="DeleteStudent(this)" data-ID="{{ data.ID }}">Delete</span>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+
+        (async () => {
+
+            Obj = await ReadGraphData('readBarData');
+            const bar_ctx = document.getElementById('barChart'); 
+            new Chart(bar_ctx, {
+            type: 'bar',
+            data: {
+            labels: Obj.coursesName,  // Courses
+                datasets: [{
+                label: 'Number of Students Enrolled Per Course',
+                data: Obj.NumberOfStudents, // No of Students in Course
+                borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1 // Ensures only whole numbers are displayed
+                        }
+                    }
+                }
+            }
+            });
+
+
+            Obj = await ReadGraphData('readPieData');
+            const pie_ctx = document.getElementById('pieChart');
+            const backgroundColor = generateUniqueColors(Obj.coursesName.length);
+            const pie_data = {
+                labels: Obj.coursesName,
+                datasets: [{
+                    // label: 'My First Dataset',
+                    data:  Obj.NumberOfStudents, // [300, 50, 100],
+                    backgroundColor: backgroundColor,
+                    hoverOffset: 4
+                }]
+            };
+
+            new Chart(pie_ctx, {
+                type: 'pie',
+                data: pie_data,
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+        })();
+        
+    </script>
+</content>
+
+{% endblock content %}

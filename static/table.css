@@ -1,0 +1,160 @@
+table {
+    border: none;
+}
+
+
+table.dataTable {
+    background-color: #FFFFFF;
+    /* width: 60%; */
+    /* max-width: 60%; */
+    text-align: center;
+    border-collapse: collapse;
+    cursor: default;
+    border-radius: 10px;
+    overflow: hidden; 
+  }
+  table.dataTable td, table.dataTable th {
+    /* border: 1px solid #AAAAAA; */
+    padding: 3px 2px;
+  }
+  table.dataTable tbody td {
+    font-size: 20px;
+    text-align: center;
+    padding: 12px;
+  }
+  table.dataTable tbody th {
+    font-size: 20px;
+    text-align: center;
+    padding: 12px;
+  }
+  table.dataTable tr:nth-child(even) {
+    background: #FFFFFF;
+  }
+  table.dataTable thead {
+    background: #FFFFFF;
+    background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 66%, #FFFFFF 100%);
+    background: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 66%, #FFFFFF 100%);
+    background: linear-gradient(to bottom, #ffffff 0%, #ffffff 66%, #FFFFFF 100%);
+  }
+  table.dataTable thead th {
+    font-size: 20px;
+    font-weight: bold;
+    color: #8D8E95;
+    text-align: center;
+    /* border-left: 2px solid #D0E4F5; */
+    padding: 12px;
+  }
+  table.dataTable thead th:first-child {
+    border-left: none;
+    
+  }
+  
+  table.dataTable tfoot {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  table.dataTable tfoot td {
+    font-size: 14px;
+  }
+  table.dataTable tfoot .links {
+    text-align: right;
+  }
+  table.dataTable tfoot .links a{
+    display: inline-block;
+    background: #1C6EA4;
+    color: #FFFFFF;
+    padding: 2px 8px;
+    border-radius: 5px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures cleaner lines */
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+/* Add horizontal borders only between rows */
+tr {
+    border-bottom: 1px solid #ddd; /* Light gray horizontal line */
+}
+
+/* Optional: Remove border from last row to avoid extra line */
+tr:last-child {
+    border-bottom: none;
+}
+
+
+/* ----------------------------------- */
+
+.dataContainer {
+    width: 100%;
+    overflow: hidden; /* Prevents table from overflowing */
+}
+
+.tableWrapper {
+    max-height: 400px;  /* Set the max height for scrolling */
+    overflow-y: auto;   /* Enable vertical scrolling */
+    display: block;     /* Required for scrollable tbody */
+}
+
+.dataTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Ensure headers stay in place */
+thead {
+    position: sticky;
+    top: 0;
+    background: #FFFFFF;
+    z-index: 2;
+}
+
+/* Ensure the table structure remains intact */
+thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed; /* Prevents column width misalignment */
+}
+
+tbody {
+    display: block;
+    overflow-y: auto;
+    max-height: 400px; /* Set max height for scroll */
+}
+
+/* Optional: Style scrollbar */
+.tableWrapper::-webkit-scrollbar {
+    width: 8px;
+}
+
+.tableWrapper::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.tableWrapper::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Prevents content from overflowing td */
+table.dataTable td, table.dataTable th {
+    padding: 12px;
+    word-wrap: break-word; /* Ensures long text breaks properly */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adds '...' if text overflows */
+    white-space: nowrap; /* Prevents text from breaking into multiple lines */
+}
+
+/* Allow text wrapping inside td if necessary */
+table.dataTable tbody td {
+    font-size: 20px;
+    text-align: center;
+    padding: 12px;
+    white-space: normal; /* Allow wrapping */
+    word-break: break-word; /* Ensures text breaks and does not overflow */
+}
