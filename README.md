@@ -75,6 +75,7 @@ Fixed Seed Data: The system includes a predefined set of students and courses, b
 ✅ Finish this If got more time.
 ✅ Add Authentication & Authorization
 ✅ Improve UI with any other UI Framework.
+✅ Will Make Each Page/element Responsive.
 ✅ Add Enrollment CRUD Operations (Now Implemented!)
 ✅ Implemented, but make Test Cases Unit Tests for API Endpoints
 ✅ Enhance API Logging & Error Handling
