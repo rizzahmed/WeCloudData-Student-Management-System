@@ -62,11 +62,21 @@ The interactive API documentation can be accessed at:
 ---
 
 
+## Assumptions and Simplifications
+No Authentication Yet: For simplicity, authentication and authorization are not yet implemented but planned for future updates.
+Basic Validation: Email and student ID validation are handled, but more complex constraints (e.g., duplicate name checks) are not fully implemented.
+Limited UI Implementation: The frontend is still under development, but API endpoints are fully functional.
+Fixed Seed Data: The system includes a predefined set of students and courses, but future improvements may allow more dynamic seeding.
+
+
+
+
 ## Future Improvements
+✅ Finish this If got more time.
 ✅ Add Authentication & Authorization
-✅ Improve UI with React Dashboard
+✅ Improve UI with any other UI Framework.
 ✅ Add Enrollment CRUD Operations (Now Implemented!)
-✅ Implement Unit Tests for API Endpoints
+✅ Implemented, but make Test Cases Unit Tests for API Endpoints
 ✅ Enhance API Logging & Error Handling
 
 ---
